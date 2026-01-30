@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "axiomendgame",
+  "version": "${version}",
+  "name": "Axiom Endgame",
+  "description": "Post-Netherite endgame progression focused on controlled power.",
+  "authors": [
+    "You"
+  ],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.axiomendgame.AxiomEndgameMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "fabric": "*",
+    "minecraft": "1.20.1"
+  }
+}
