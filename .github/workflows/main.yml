@@ -8,28 +8,28 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # 1. Checkout the repo
+      # Checkout the repo
       - uses: actions/checkout@v4
 
-      # 2. Set up Java 17
+      # Use Java 21 for Fabric Loom 1.14+
       - uses: actions/setup-java@v4
         with:
-          distribution: temurin
-          java-version: '17'
+          java-version: '21'
+          distribution: 'temurin'
 
-      # 3. Give gradlew permission
-      - run: chmod +x ./gradlew
+      # Make gradlew executable
+      - run: chmod +x gradlew
 
-      # 4. Clean previous builds
+      # Clean previous builds
       - run: ./gradlew clean
 
-      # 5. Build the mod using Fabric Loom
+      # Build mod
       - run: ./gradlew build --no-daemon
 
-      # 6. Debug: list contents of build/libs
+      # List files in build/libs (debug)
       - run: ls -l build/libs
 
-      # 7. Upload the jar artifact
+      # Upload the jar
       - uses: actions/upload-artifact@v4
         with:
           name: axiom-endgame
